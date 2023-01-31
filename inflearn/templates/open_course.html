@@ -1,0 +1,9 @@
+<h1>open_course</h1>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="open course">
+</form>

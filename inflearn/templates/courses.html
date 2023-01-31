@@ -1,0 +1,19 @@
+<h1>courses</h1>
+
+{% for course in courses %}
+    <a href="{% url 'course_detail' course.id %}"><h3>제목 : {{ course.title }}</h3></a>
+    <h4>강사 : {{ course.teacher }}</h4>
+    <h5>작성일 : {{ course.date }}</h5>
+    {% for lecture in lectures %}
+        {% if lecture.course.id == course.id %}
+            <h6>1강 : {{ lecture.url }}</h6>
+        {% endif %}
+    {% endfor %}
+    <script>
+        const h6s = document.querySelectorAll("h6");
+        for (let i = 1; i < h6s.length; i++) {
+            h6s.item(i).classList.add("hidden");
+        }
+    </script>
+    <hr/>
+{% endfor %}

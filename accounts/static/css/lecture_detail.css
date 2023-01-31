@@ -1,0 +1,83 @@
+/* global */
+* {
+   font-family: 'Roboto', sans-serif;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+button {
+   border: none;
+   background-color: transparent;
+   cursor: pointer;
+}
+
+a, a:active {
+   text-decoration: none;
+   color: inherit;
+}
+
+.flex{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
+
+p{
+   font-size: 16px;
+   color: white;
+}
+
+/* nav 전체 */
+nav {
+   position: fixed;    
+   left : 0;
+   top : 0;
+   height: 50px;
+   width: 100%;
+   background-color: #171717;
+}
+
+/* 상단 왼쪽 */
+
+#logo {
+   width: 20px;
+   height: 20px;
+   line-height: 1.4;
+   box-sizing: content-box;
+   padding: 10px 6px 10px 6px;
+}
+
+.top-left{
+   height: 50px;
+   padding-right: 15px;
+   background-color: #212529;
+}
+
+#tri {
+   position: absolute;
+   top : 0;
+   left: 140px;
+   width: 0;
+   height: 0;
+   border-bottom: 25px solid transparent;
+   border-top: 25px solid transparent;
+   border-left: 20px solid #212529;
+   border-right: 25px solid transparent;
+}
+
+/* 제목 */
+.sign-up{
+  position: relative;
+  left: 40px;
+}
+
+/* video */
+#video{
+   position: absolute;
+   width: 70%;
+   height: 80%;
+   top: 10%;
+   left: 15%;
+
+}

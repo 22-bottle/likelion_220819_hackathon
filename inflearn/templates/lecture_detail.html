@@ -1,0 +1,49 @@
+<a href="{% url 'course_detail' lecture_detail.course.id %}"><h3>강의 대쉬보드</h3></a>
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ lecture_detail.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/lecture_detail.css' %}" type="text/css">
+</head>
+<body>
+    <nav class="flex">
+        <a class = "flex" href="index.html">
+            <div class="flex top-left">
+                    <span id = "logo">
+                        <svg width="14" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14"><title>LinkIcon</title><path fill="#ffffff" fill-rule="evenodd" d="M12.031 7h-.437c-.121 0-.219.098-.219.219v5.468c0 .242-.196.438-.438.438H1.313c-.242 0-.438-.196-.438-.438V3.063c0-.242.196-.438.438-.438H6.78c.121 0 .219-.098.219-.219V1.97c0-.121-.098-.219-.219-.219H1.313C.588 1.75 0 2.338 0 3.063v9.624C0 13.412.588 14 1.313 14h9.624c.725 0 1.313-.588 1.313-1.313V7.22c0-.121-.098-.219-.219-.219zm1.64-7L9.954.01c-.181 0-.328.146-.328.327v.274c0 .181.147.328.328.328l2.461-.01.02.02-8.838 8.836c-.062.062-.097.145-.097.233 0 .087.035.17.097.232l.155.155c.061.062.145.096.232.096.087 0 .171-.034.233-.096l8.835-8.837.02.019-.01 2.461c0 .181.147.328.328.328h.274c.18 0 .328-.147.328-.328L14 .328C14 .147 13.853 0 13.672 0z"></path></svg>
+                    </span>
+                    <a href="{% url 'course_detail' lecture_detail.course.id %}"><p>강의 대시보드</p></a>
+
+            </div>
+            <div id = 'tri'></div>
+        </a>
+        <div class="sign-up">
+            <p>강의</p>
+        </div>
+    </nav>
+    <div id="url">
+    </div>
+</body>
+
+<script type="text/javascript">
+   const $url = document.querySelector('#url');
+    var urlData = 'https://www.youtube.com/embed/';
+    var id = "{{ lecture_detail.url }}";
+    
+    // emded + id
+    id = id.split('=')[1];
+    urlData += id;
+    console.log(urlData)
+    const urlInput = `
+    <iframe id="video" width="560" height="315" src=${urlData} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    `
+    $url.insertAdjacentHTML('afterbegin', urlInput);
+</script>
+
+</html>

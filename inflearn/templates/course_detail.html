@@ -1,0 +1,246 @@
+<!-- <h1>제목 : {{ course_detail.title }}</h1>
+
+<h2>작성자 : {{ course_detail.teacher.username }}</h2>
+
+<h2>작성일 : {{ course_detail.date }}</h2>
+
+<h2>lectures</h2>
+{% for lecture in lectures %}
+    {% if lecture.course.id == course_detail.id %}
+        <a href="{% url 'lecture_detail' course_detail.id lecture.id %}"><h3>{{ lecture.lecture }}</h3></a>
+        <hr/>
+    {% endif %}
+{% endfor %}
+
+{% if user.username == course_detail.teacher.username %}
+    <a href="{% url 'open_lecture' course_detail.id %}"><button>add lecture<button></a>
+{% endif %} -->
+
+
+<!-- {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ course_detail.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/course_detail.css' %}" type="text/css">
+</head>
+<body>
+    <h1>제목 : {{ course_detail.title }}</h1>
+    <h2>작성자 : {{ course_detail.teacher.username }}</h2>
+    <h2>작성일 : {{ course_detail.date }}</h2>
+    <h2>lectures</h2>
+    {% for lecture in lectures %}
+        {% if lecture.course.id == course_detail.id %}
+            <a href="{% url 'lecture_detail' course_detail.id lecture.id %}"><h3>{{ lecture.lecture }}</h3></a>
+            <hr/>
+        {% endif %}
+    {% endfor %}
+    
+    {% if user.username == course_detail.teacher.username %}
+        <a href="{% url 'open_lecture' course_detail.id %}"><button>add lecture<button></a>
+    {% endif %}
+</body>
+<script></script>
+</html> -->
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ lecture_detail.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/course_detail.css' %}" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% for lecture in lectures %}
+        {% if lecture.course.id == course_detail.id %}
+            <h3>{{ lecture.url }}</h3>
+            <hr/>
+            <script>
+                const h3s = document.querySelectorAll("h3");
+                for (let i = 1; i < h6s.length; i++) {
+                    h6s.item(i).classList.add("hidden");
+                }
+            </script>
+        {% endif %}
+    {% endfor %}
+    <nav class="flex">
+        <div class="flex">
+            <button class="nav-btn">
+                <span class = "nav-icon">
+                <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope yt-icon"><path d="M21,6H3V5h18V6z M21,11H3v1h18V11z M21,17H3v1h18V17z" class="style-scope yt-icon"></path></g></svg>
+                </span> 
+            </button>
+        
+            <a class="flex" href="index.html">
+                <span class = "nav-icon" id="logo">
+                    프로젝트
+                </span>
+            </a>
+       
+        </div>
+
+        <div class="flex nav-center">
+            <form id="search-form" class="flex">
+                <input type="text" placeholder="검색"/>
+                <button class="nav-btn flex" type="submit">
+                    <span class = "nav-icon">
+                        <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope yt-icon"><path d="M20.87,20.17l-5.59-5.59C16.35,13.35,17,11.75,17,10c0-3.87-3.13-7-7-7s-7,3.13-7,7s3.13,7,7,7c1.75,0,3.35-0.65,4.58-1.71 l5.59,5.59L20.87,20.17z M10,16c-3.31,0-6-2.69-6-6s2.69-6,6-6s6,2.69,6,6S13.31,16,10,16z" class="style-scope yt-icon"></path></g></svg>
+                    </span>     
+                </button>
+            </form>
+       
+            <button class="nav-btn" id="mic-btn">
+                <span class = "nav-icon">
+                    <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope yt-icon"><path d="M12 3C10.34 3 9 4.37 9 6.07V11.93C9 13.63 10.34 15 12 15C13.66 15 15 13.63 15 11.93V6.07C15 4.37 13.66 3 12 3ZM18.5 12H17.5C17.5 15.03 15.03 17.5 12 17.5C8.97 17.5 6.5 15.03 6.5 12H5.5C5.5 15.24 7.89 17.93 11 18.41V21H13V18.41C16.11 17.93 18.5 15.24 18.5 12Z" class="style-scope yt-icon"></path></g></svg>
+                </span>     
+            </button>
+        </div>
+       
+        <div class="flex nav-right">
+            <button class="nav-btn">
+                <span class = "nav-icon">
+                    <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope yt-icon"><path d="M18,8.83V5H2v14h16v-5.83L22,15V7L18,8.83z M14,13h-3v3H9v-3H6v-2h3V8h2v3h3V13z" class="style-scope yt-icon"></path></g></svg>
+               </span>
+             </button>
+
+            <button class="nav-btn">
+                <span class = "nav-icon">
+                    <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope yt-icon"><path d="M10,20h4c0,1.1-0.9,2-2,2S10,21.1,10,20z M20,17.35V19H4v-1.65l2-1.88v-5.15c0-2.92,1.56-5.22,4-5.98V3.96 c0-1.42,1.49-2.5,2.99-1.76C13.64,2.52,14,3.23,14,3.96l0,0.39c2.44,0.75,4,3.06,4,5.98v5.15L20,17.35z M19,17.77l-2-1.88v-5.47 c0-2.47-1.19-4.36-3.13-5.1c-1.26-0.53-2.64-0.5-3.84,0.03C8.15,6.11,7,7.99,7,10.42v5.47l-2,1.88V18h14V17.77z" class="style-scope yt-icon"></path></g></svg>
+               </span>     
+            </button>
+            
+            <button class="nav-btn flex" id="profile-btn">
+                    <img id="img" draggable="false" class="style-scope yt-img-shadow" alt="아바타 이미지" height="32" width="32" src="https://yt3.ggpht.com/ytc/AMLnZu9xneUFTBrMzb_6Tl6IXrxUyfHoMAMw_t1q2MUA8lgXuA=s88-c-k-c0x00ffffff-no-rj-mo"> 
+            </button>
+        </div>
+    </nav>
+
+    <section>
+        <div class="flex" id="main_box">
+                <!-- url 받으면 동적으로 처리 -->
+                <div class="video">
+                    <iframe class = "video_css" width="560" height="315" src="https://www.youtube.com/embed/Aq_gsctWHtQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="content">
+                    <div id="title">
+                        <p><strong> {{ course_detail.title }}</strong></p>
+                    </div>
+                    <div class="flex" id="ter">
+                        <div>
+                            <svg width="16" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 0 16 16"><path fill="#ffffff" fill-rule="evenodd" d="M8 1.667c-2.025 0-3.667 1.641-3.667 3.666 0 1.26.636 2.371 1.603 3.031-2.243.822-3.859 2.945-3.933 5.454-.009.277.209.507.485.515.276.008.506-.209.514-.485C3.082 11.158 5.29 9 8 9c2.71 0 4.918 2.157 4.998 4.848.008.276.238.493.514.485.276-.008.493-.239.485-.514-.074-2.51-1.69-4.633-3.933-5.455.967-.66 1.603-1.771 1.603-3.03 0-2.026-1.642-3.667-3.667-3.667zM5.333 5.333c0-1.472 1.194-2.666 2.667-2.666 1.473 0 2.667 1.194 2.667 2.666C10.667 6.806 9.473 8 8 8 6.527 8 5.333 6.806 5.333 5.333z" clip-rule="evenodd"></path></svg>
+                            <p1>&nbsp;&nbsp;{{ course_detail.teacher.username }}&nbsp;&nbsp;</p1>
+                            <svg width="16" xmlns="http://www.w3.org/2000/svg" height="12" viewBox="0 0 16 12"><path fill="#ffffff" d="M13.2 10.5H2.8c-.22 0-.4.169-.4.375v.75c0 .206.18.375.4.375h10.4c.22 0 .4-.169.4-.375v-.75c0-.206-.18-.375-.4-.375zM14.8 3c-.663 0-1.2.504-1.2 1.125 0 .166.04.321.11.464L11.9 5.606c-.385.216-.883.094-1.105-.272L8.758 1.992c.267-.206.442-.515.442-.867C9.2.504 8.663 0 8 0c-.662 0-1.2.504-1.2 1.125 0 .352.175.66.442.867L5.205 5.334c-.223.366-.723.488-1.105.272L2.293 4.59c.067-.14.11-.298.11-.464 0-.621-.538-1.125-1.2-1.125C.54 3 0 3.504 0 4.125S.537 5.25 1.2 5.25c.065 0 .13-.01.193-.019L3.2 9.75h9.6l1.807-4.519c.063.01.128.019.193.019.662 0 1.2-.504 1.2-1.125S15.463 3 14.8 3z"></path></svg>
+                        </div>
+                        <div>
+                            <svg width="16" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 0 16 16"><path fill="#ffffff" fill-rule="evenodd" d="M5.773 1.455c-.283 0-.518.216-.542.498L5 4.727H2.545c-.3 0-.545.244-.545.546 0 .301.244.545.545.545H4.91l-.364 4.364h-2c-.3 0-.545.244-.545.545 0 .301.244.546.545.546h1.91l-.224 2.684c-.027.317.224.588.542.588.282 0 .518-.216.541-.498l.231-2.774H9.91l-.224 2.684c-.026.317.224.588.542.588.283 0 .518-.216.542-.498L11 11.273h2.454c.302 0 .546-.245.546-.546 0-.301-.244-.545-.546-.545h-2.363l.364-4.364h2c.3 0 .545-.244.545-.545 0-.302-.244-.546-.546-.546h-1.909l.224-2.684c.027-.317-.224-.588-.542-.588-.282 0-.518.216-.541.498l-.232 2.774H6.091l.224-2.684c.026-.317-.224-.588-.542-.588zM6 5.818l-.364 4.364H10l.364-4.364H6z" clip-rule="evenodd"></path></svg>
+                            <p1>&nbsp;&nbsp;{{ course_detail.date }}</p1>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="space_between">
+                            <svg width="16" xmlns="http://www.w3.org/2000/svg" height="17" viewBox="0 0 16 16"><path fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" d="M2.5 2.5A.5.5 0 0 0 2 3v10a.5.5 0 0 0 .5.5h12a.5.5 0 0 0 .5-.5V4.5a.5.5 0 0 0-.5-.5H7.035a1.5 1.5 0 0 1-1.248-.668l-.406-.61a.5.5 0 0 0-.416-.222H2.5zM1 3a1.5 1.5 0 0 1 1.5-1.5h2.465c.501 0 .97.25 1.248.668l.406.61A.5.5 0 0 0 7.035 3H14.5A1.5 1.5 0 0 1 16 4.5V13a1.5 1.5 0 0 1-1.5 1.5h-12A1.5 1.5 0 0 1 1 13V3z"></path><path fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" d="M8.5 5.5A.5.5 0 0 1 9 6v5a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5z"></path><path fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" d="M11.5 8.5a.5.5 0 0 1-.5.5H6a.5.5 0 0 1 0-1h5a.5.5 0 0 1 .5.5z"></path></svg>
+                            
+                            <strong>&nbsp;&nbsp;폴더에 추가</strong>
+                        </button>
+                    </div>
+            </div>
+    </section>
+
+    <div class="flex text_box">
+       
+        <div>
+           <storng>교육과정</storng>
+       </div> 
+
+       <div>
+        {% if user.username == course_detail.teacher.username %}
+            <a href="{% url 'open_lecture' course_detail.id %}">
+                <button class="flex">
+                    <div>
+                        <svg  viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 30px; height: 30px;"><g class="style-scope yt-icon"><path d="M14,13h-3v3H9v-3H6v-2h3V8h2v3h3V13z M17,6H3v12h14v-6.39l4,1.83V8.56l-4,1.83V6 M18,5v3.83L22,7v8l-4-1.83V19H2V5H18L18,5 z" class="style-scope yt-icon"></path></g></svg>
+                    </div>
+
+                    <div style="font-size:15px">
+                        <strong>강의 등록</strong>
+                    </div>
+
+                </button>
+            </a>
+        {% endif %}
+        </div>
+
+    </div>
+
+
+    <scetion>
+        <div class="side">
+        </div>
+    </scetion>
+
+    <div class="foot">
+        <div class="flex_reverse">
+            {% for lecture in lectures %}
+                {% if lecture.course.id == course_detail.id %}
+                <span>
+                    <div class="flex box">
+                        <div>
+                            <svg width="20px" height="20px" id="레이어_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 178.6 178.6" style="enable-background:new 0 0 178.6 178.6;" xml:space="preserve"><style type="text/css">.st0{opacity:0.8;enable-background:new;} .st1{fill:#FFFFFF;}</style><g><path class="st0" d="M178.6,89.3c0,49.3-40,89.3-89.3,89.3S0,138.6,0,89.3S40,0,89.3,0S178.6,40,178.6,89.3z"></path><path class="st1" d="M68,118.5V89.2V60c0-3.2,3.6-5.2,6.3-3.4L120,85.8c2.5,1.6,2.5,5.3,0,6.9l-45.7,29.2 C71.6,123.6,68,121.7,68,118.5z"></path></g></svg>
+                        </div>
+                        <div style="padding-bottom: 5px;">        
+                            <a href="{% url 'lecture_detail' course_detail.id lecture.id %}"><p>&nbsp;&nbsp;{{ lecture.lecture }}</p></a>
+                        </div>
+                    </div>
+                </span>
+                {% endif %}
+            {% endfor %}
+         </div>
+    </div>
+
+<script type="text/javascript">
+//  const $url = document.querySelector('#url');
+//     var urlData = 'https://www.youtube.com/embed/';
+//     var id = "{{ lecture_detail.url }}";
+    
+//     // emded + id
+//     id = id.split('=')[1];
+//     urlData += id;
+//     console.log(urlData)
+//     const urlInput = `
+//     <iframe id="video" width="560" height="315" src=${urlData} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+//     `
+//     $url.insertAdjacentHTML('afterbegin', urlInput);
+
+const $flex_reverse = document.querySelector('.flex_reverse');
+
+var a = "{{lectures|safe}}".js;
+console.log(a);
+
+// const course = 
+// <a href = "">
+// <div class="flex box">
+//     <div>
+//         <svg width="20px" height="20px" id="레이어_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 178.6 178.6" style="enable-background:new 0 0 178.6 178.6;" xml:space="preserve"><style type="text/css">.st0{opacity:0.8;enable-background:new;} .st1{fill:#FFFFFF;}</style><g><path class="st0" d="M178.6,89.3c0,49.3-40,89.3-89.3,89.3S0,138.6,0,89.3S40,0,89.3,0S178.6,40,178.6,89.3z"></path><path class="st1" d="M68,118.5V89.2V60c0-3.2,3.6-5.2,6.3-3.4L120,85.8c2.5,1.6,2.5,5.3,0,6.9l-45.7,29.2 C71.6,123.6,68,121.7,68,118.5z"></path></g></svg>
+//     </div>
+//     <div style="padding-bottom: 5px;">
+//         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${course_title}<p>
+//     </div>
+// </div>
+
+// {% for lecture in lectures %}
+//     {% if lecture.course.id == course_detail.id %}
+//         <a href="{% url 'lecture_detail' course_detail.id lecture.id %}"><h3>{{ lecture.lecture }}</h3></a>
+//         <hr/>
+//     {% endif %}
+// {% endfor %}
+</script>
+</html>
